@@ -1,0 +1,247 @@
+.App {
+    font-family: 'Antonio', cursive, Helvetica;
+    background-color: black;
+	line-height: 1.2;
+    height: 100%;
+}
+
+.App header {
+    font-family: 'Antonio', cursive, Helvetica;
+}
+
+.App h1 {
+    font-family: 'Antonio', cursive, Helvetica;
+    background-color: black;
+    color: #ffe7ad;
+    text-transform: uppercase;
+}
+
+button {
+    border: none;
+    border-radius: 0.9em;
+    text-align: left;
+    font-weight: bold;
+    cursor: pointer;
+    outline: 0;
+    padding: 8px;
+    margin: 4px;
+    width: 100%;
+    background-color: #FF9C63;
+}
+
+button:hover {
+    background-color: #fc6;
+}
+
+button.selection {
+    border-radius: 0;
+    border-top-right-radius: 0.9em;
+    border-bottom-right-radius: 0.9em;
+    margin-left: 0;
+    padding-left: 16px;
+    background-color: #FF9C63;
+}
+
+button.selection:hover {
+    background-color: #fc6;
+}
+
+button.navigation-next {
+    width: 8em;
+    background-color: white;
+    text-align: center;
+    cursor: inherit;
+    margin-left: 1px;
+    border-radius: 0;
+    border-top-right-radius: 0.9em;
+    border-bottom-right-radius: 0.9em;
+}
+
+button.navigation-next:enabled {
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+button.navigation-next:enabled:hover {
+    background-color: #c66;
+}
+
+button.navigation-prev {
+    width: 8em;
+    background-color: white;
+    text-align: center;
+    cursor: inherit;
+    margin-right: 1px;
+    border-radius: 0;
+    border-top-left-radius: 0.9em;
+    border-bottom-left-radius: 0.9em;
+}
+
+button.navigation-prev:enabled {
+    background-color: white;
+    text-align: center;
+    cursor: pointer;
+}
+
+button.navigation-next:enabled:hover {
+    background-color: #c66;
+}
+
+.ra-lcars-top-left-corner {
+    width: 10em;
+    height: 2.3em;
+    border-top-left-radius: 2em;
+    position: relative;
+}
+
+.ra-lcars-top-left-corner .ra-lcars-top-left-corner-inside {
+    background-color: black;
+    border-top-left-radius: 1.5em;
+    top: 1em;
+    left: 4em;
+    height: 1.3em;
+    width: 6em;
+    position: relative;
+}
+
+.ra-lcars-bottom-left-corner {
+    width: 13em;
+    height: 2.3em;
+    border-bottom-left-radius: 2em;
+    position: relative;
+}
+
+.ra-lcars-bottom-left-corner .ra-lcars-bottom-left-corner-inside {
+    background-color: black;
+    border-bottom-left-radius: 1.5em;
+    top: 0;
+    left: 4em;
+    height: 1.6em;
+    width: 9em;
+    position: relative;
+}
+
+.ra-lcars-top-right-corner {
+    width: 10em;
+    height: 2.3em;
+    border-top-right-radius: 2em;
+    position: relative;
+}
+
+.ra-lcars-top-right-corner .ra-lcars-top-right-corner-inside {
+    background-color: black;
+    border-top-right-radius: 1.5em;
+    top: 1em;
+    left: 0;
+    height: 1.3em;
+    width: 6em;
+    position: relative;
+}
+
+.ra-lcars-bottom-right-corner {
+    width: 6em;
+    height: 2.3em;
+    border-bottom-right-radius: 2em;
+    position: relative;
+}
+
+.ra-lcars-bottom-right-corner .ra-lcars-bottom-right-corner-inside {
+    background-color: black;
+    border-bottom-right-radius: 1.5em;
+    top: 0;
+    left: 0;
+    height: 1.6em;
+    width: 2em;
+    position: relative;
+}
+
+.ra-lcars-color-lavender {
+    background-color: #c9c;
+}
+
+.ra-lcars-color-lightblue {
+    background-color: #9cf;
+}
+
+.ra-lcars-color-red {
+    background-color: #c66;
+}
+
+.ra-lcars-color-grey {
+    background-color: #999;
+}
+
+.ra-lcars-color-yellow {
+    background-color: #fc6;
+}
+
+.ra-lcars-line-bold {
+    height: 1em;
+}
+
+.ra-lcars-top {
+    vertical-align: top;
+}
+
+.ra-lcars-line-thin {
+    height: 0.7em;
+}
+
+.ra-lcars-bottom {
+    vertical-align: bottom;
+}
+
+.ra-lcars-line-left {
+    width: 4em;
+}
+
+.ra-lcars-line-right {
+    width: 4em;
+}
+
+.ra-lcars-vertical-spacer {
+    height: 0.2em;
+    background-color: black;
+}
+.ra-lcars-line-end-left {
+    border-top-right-radius: 0.5em; 
+    border-bottom-right-radius: 0.5em;
+}
+
+.ra-lcars-horizontal-spacer {
+    background-color: black;
+    width: 0.2em;
+}
+
+.ra-lcars-text-yellow {
+    color: #ffe7ad;
+}
+
+.ra-lcars-text-red {
+    color: #c66;
+}
+
+.ra-lcars-code {
+    padding: 0.2em;
+}
+
+.recipe-title {
+    font-size: 2.5em;
+    color: #c66;
+    text-transform: uppercase;
+}
+
+.recipe-preamble, .recipe-preparation, .recipe-ingredient  {
+    color: white;
+}
+.recipe-rating, .recipe-adding, .recipe-update, .recipe-tags {
+    font-size: 0.9em;   
+    color: white;
+}
+
+.recipe-portion, .recipe-prepare {
+     font-size: 1.875em;
+     color: #c9c;
+     text-transform: uppercase;
+}

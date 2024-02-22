@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="a0542348-c743-4117-89bf-c16144ac853c" activeEnvironment="Default" name="REST Project 1" resourceRoot="" soapui-version="5.7.2" abortOnError="false" runType="SEQUENTIAL" defaultScriptLanguage="Groovy" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="a14fdd1e-5500-4284-bc97-6f027371dc8c" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://www.anderes.click" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>https://www.anderes.click</con:endpoint></con:endpoints><con:resource name="Recipes-repository" path="/resources-api/recipes-repository" id="aa1cbcc1-8584-46ad-b979-23d1d90bb068"><con:settings/><con:parameters/><con:method name="Recipes-repository 1" id="ae257707-ee24-462e-8d8d-5981da352df9" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:rec="https://www.anderes.click/resources-api/recipes-repository">rec:Response</con:element></con:representation><con:request name="Request 1" id="d5eca1da-037f-4007-b6f0-a48800ed7d0a" mediaType="application/json"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://www.anderes.click</con:endpoint><con:request/><con:originalUri>https://www.anderes.click/resources-api/recipes-repository</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/><con:parameterOrder/></con:request></con:method></con:resource></con:interface><con:restMockService id="0695df68-3ca9-43c2-b2f4-acf2ed71d12b" port="8080" path="/" host="ANDERESR-ZB14" name="REST-MockService"><con:settings/><con:startScript/><con:properties/><con:onRequestScript>mockRequest.httpResponse.addHeader("Access-Control-Allow-Origin", "*")
+mockRequest.httpResponse.addHeader("Access-Control-Allow-Headers", "*")
+</con:onRequestScript><con:restMockAction name="/resources-api/recipes-repository" method="GET" resourcePath="/resources-api/recipes-repository" id="837ae173-662a-4a3f-b383-b08b1772dc0e"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response 200" id="747b0679-110b-40ae-9f4f-f9eeab952e71" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>{
+	"content": [
+		{
+			"uuid": "27190587-b813-4179-99d5-13c90417262d",
+			"title": "Amaretti - einfach Genial",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/27190587-b813-4179-99d5-13c90417262d"
+				}
+			]
+		},
+		{
+			"uuid": "4ab99cc8-b21a-4146-97ef-a7949184a173",
+			"title": "Apfel-Mascarpone-Creme mit Amarettini",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173"
+				}
+			]
+		},
+		{
+			"uuid": "c0e5582e-252f-4e94-8a49-e12b4b047afb",
+			"title": "Arabische Pasta",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/c0e5582e-252f-4e94-8a49-e12b4b047afb"
+				}
+			]
+		},
+		{
+			"uuid": "77acc29a-6809-4183-8945-e8b759e9b3f0",
+			"title": "Asiatische Spaghetti",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/77acc29a-6809-4183-8945-e8b759e9b3f0"
+				}
+			]
+		},
+		{
+			"uuid": "48524f43-b7de-4261-a408-77b9e078ea1b",
+			"title": "Auberginen Lasagne",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/48524f43-b7de-4261-a408-77b9e078ea1b"
+				}
+			]
+		},
+		{
+			"uuid": "adf99b55-4804-4398-af4e-e37ec2c692c7",
+			"title": "Avocadotatar",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/adf99b55-4804-4398-af4e-e37ec2c692c7"
+				}
+			]
+		},
+		{
+			"uuid": "daf35540-8cf3-44a9-826e-7109708d8654",
+			"title": "Ayurveda Gemüse",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/daf35540-8cf3-44a9-826e-7109708d8654"
+				}
+			]
+		},
+		{
+			"uuid": "d60588da-7971-42f1-b514-85e1bfa02b1e",
+			"title": "Bananen-Cappuccino",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/d60588da-7971-42f1-b514-85e1bfa02b1e"
+				}
+			]
+		},
+		{
+			"uuid": "0e89ed78-68a8-4218-a48a-2280f8facce7",
+			"title": "Bananen-Creme",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/0e89ed78-68a8-4218-a48a-2280f8facce7"
+				}
+			]
+		},
+		{
+			"uuid": "a9a8feed-4010-4a86-aa06-6f010d02edf9",
+			"title": "Basilikum-Pesto",
+			"links": [
+				{
+					"rel": "self",
+					"href": "/resources-api/recipes-repository/a9a8feed-4010-4a86-aa06-6f010d02edf9"
+				}
+			]
+		}
+	],
+	"pageable": {
+		"sort": {
+			"unsorted": false,
+			"sorted": true,
+			"empty": false
+		},
+		"pageNumber": 0,
+		"pageSize": 10,
+		"offset": 0,
+		"paged": true,
+		"unpaged": false
+	},
+	"last": false,
+	"totalPages": 8,
+	"totalElements": 78,
+	"sort": {
+		"unsorted": false,
+		"sorted": true,
+		"empty": false
+	},
+	"numberOfElements": 10,
+	"first": true,
+	"size": 10,
+	"number": 0,
+	"empty": false
+}</con:responseContent><con:header><con:name>Content-type</con:name><con:value>application/json; charset=utf-8</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>POST, GET, OPTIONS, DELETE, PUT, DELETE</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173" method="GET" resourcePath="/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173" id="8a989706-d3b9-405a-abbd-16a8d8b80c38"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response 200" id="e2a3fb49-f425-4335-8243-ae587c87bdda" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent><![CDATA[{
+	"uuid": "4ab99cc8-b21a-4146-97ef-a7949184a173",
+	"addingDate": 1487430081780,
+	"title": "Apfel-Mascarpone-Creme mit Amarettini",
+	"preparation": "<p>Die Äpfel nach Wunsch schälen, vierteln, entkernen und in Spalten schneiden. In einer Pfanne die Butter erhitzen und die Äpfel darin ein paar Minuten anbraten. Den Sirup und den Zitronensaft zufügen, einmal aufkochen und von der Kochstelle ziehen.</p>\n\n<p>Mascarpone mit Joghurt, Zucker glatt rühren. Die Sahne steif schlagen und unterheben.</p>\n\n<p>Die Äpfel mit Creme und Amarettini in Gläser schichten und das Dessert mit Kakao bestäuben.</p>\n",
+	"preamble": "",
+	"noOfPerson": "4",
+	"tags": [
+		"dessert",
+		"vegi"
+	],
+	"rating": 4,
+	"editingDate": 1487459207052,
+	"links": [
+		{
+			"rel": "ingredients",
+			"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients"
+		}
+	]
+}]]></con:responseContent><con:header><con:name>Content-type</con:name><con:value>application/json; charset=utf-8</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>POST, GET, OPTIONS, DELETE</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients" method="GET" resourcePath="/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients" id="41ed231d-5e04-4ca9-87f1-b2648506b386"><con:settings/><con:defaultResponse>Response 200</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response 200" id="50640fc7-c689-492d-a79b-440c9b7dde2b" httpResponseStatus="200" mediaType="application/json"><con:settings/><con:responseContent>[
+	{
+		"resourceId": "74224e7b-a98a-40c2-8e7b-bb4c1e81a7d7",
+		"portion": "3-4 EL",
+		"description": "Zucker oder Vanillezucker",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/74224e7b-a98a-40c2-8e7b-bb4c1e81a7d7"
+			}
+		]
+	},
+	{
+		"resourceId": "4245169e-8a7f-45c3-a9bb-f7f0fe71c87a",
+		"portion": "100g",
+		"description": "fettarmer Joghurt",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/4245169e-8a7f-45c3-a9bb-f7f0fe71c87a"
+			}
+		]
+	},
+	{
+		"resourceId": "977dd1b2-a8ff-4e0c-ac30-99554fe598de",
+		"portion": "100ml",
+		"description": "Sahne",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/977dd1b2-a8ff-4e0c-ac30-99554fe598de"
+			}
+		]
+	},
+	{
+		"resourceId": "db1664fa-b4bc-455c-905f-05d4bafa9a12",
+		"portion": "20g",
+		"description": "Butter",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/db1664fa-b4bc-455c-905f-05d4bafa9a12"
+			}
+		]
+	},
+	{
+		"resourceId": "364741ac-a63b-4549-88c6-627db3fbba99",
+		"portion": "50g",
+		"description": "Amarettini",
+		"comment": "(grob zerdrückt)",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/364741ac-a63b-4549-88c6-627db3fbba99"
+			}
+		]
+	},
+	{
+		"resourceId": "16476625-1d71-40a7-995d-a723674ee71e",
+		"portion": "2",
+		"description": "grosse Äpfel",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/16476625-1d71-40a7-995d-a723674ee71e"
+			}
+		]
+	},
+	{
+		"resourceId": "a6de95a5-3545-43ee-acd4-d3206214c9e5",
+		"portion": "",
+		"description": "Kakao zum Bestäuben",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/a6de95a5-3545-43ee-acd4-d3206214c9e5"
+			}
+		]
+	},
+	{
+		"resourceId": "29446289-8670-46f8-aad0-d2155bbc6a05",
+		"portion": "ein Spritzer",
+		"description": "Zitronensaft",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/29446289-8670-46f8-aad0-d2155bbc6a05"
+			}
+		]
+	},
+	{
+		"resourceId": "2b7cffff-813e-48a6-9f57-eec10756d527",
+		"portion": "4 EL",
+		"description": "Ahornsirup",
+		"comment": "oder Honig",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/2b7cffff-813e-48a6-9f57-eec10756d527"
+			}
+		]
+	},
+	{
+		"resourceId": "e5d70c7c-bcd7-44c7-aa52-69fe9ade37ee",
+		"portion": "250g",
+		"description": "Mascarpone",
+		"comment": "",
+		"links": [
+			{
+				"rel": "self",
+				"href": "/resources-api/recipes-repository/4ab99cc8-b21a-4146-97ef-a7949184a173/ingredients/e5d70c7c-bcd7-44c7-aa52-69fe9ade37ee"
+			}
+		]
+	}
+]</con:responseContent><con:header><con:name>Content-type</con:name><con:value>application/json; charset=utf-8</con:value></con:header><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>POST, GET, OPTIONS, DELETE</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="CORS" method="OPTIONS" resourcePath="/" id="c4ff607f-92ee-4ced-9cd6-0351a0ec4894"><con:settings/><con:defaultResponse>Response OK</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response OK" id="7abb2bb7-335e-4220-bc29-a824088b4cfa" httpResponseStatus="204" mediaType="application/xml"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>POST, GET, OPTIONS, DELETE, PUT, DELETE</con:value></con:header></con:response></con:restMockAction><con:restMockAction name="/resources-api/recipes-repository" method="OPTIONS" resourcePath="/resources-api/recipes-repository" id="dae3c01e-e6b7-45de-82f7-9d9067af2598"><con:settings/><con:defaultResponse>Response okay</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchPath>/*&#13;
+// Script dispatcher is used to select a response based on the incoming request.&#13;
+// Here are few examples showing how to match based on path, query param, header and body&#13;
+&#13;
+// Match based on path&#13;
+def requestPath = mockRequest.getPath()&#13;
+log.info "Path: "+ requestPath&#13;
+&#13;
+if( requestPath.contains("json") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "JSON Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on query parameter&#13;
+def queryString = mockRequest.getRequest().getQueryString()&#13;
+log.info "QueryString: " + queryString&#13;
+&#13;
+if( queryString.contains("stockholm") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response Stockholm"&#13;
+}&#13;
+else if( queryString.contains("london") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response London"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on header&#13;
+def acceptEncodingHeaderList = mockRequest.getRequestHeaders().get("Accept-Encoding")&#13;
+log.info "AcceptEncoding Header List: " + acceptEncodingHeaderList&#13;
+&#13;
+if( acceptEncodingHeaderList.contains("gzip,deflate") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "GZiped Response"&#13;
+}&#13;
+&#13;
+&#13;
+// Match based on body&#13;
+def requestBody = mockRequest.getRequestContent()&#13;
+log.info "Request body: " + requestBody&#13;
+&#13;
+if( requestBody.contains("some data") )&#13;
+{&#13;
+    // return the name of the response you want to dispatch&#13;
+    return "Response N"&#13;
+}&#13;
+*/&#13;
+</con:dispatchPath><con:response name="Response okay" id="bb0645d0-a1f2-4b85-afb4-4e6a49c6ca95" httpResponseStatus="204"><con:settings/><con:responseContent/><con:header><con:name>Access-Control-Allow-Methods</con:name><con:value>POST, GET, OPTIONS, DELETE, PUT, DELETE</con:value></con:header></con:response></con:restMockAction></con:restMockService><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
