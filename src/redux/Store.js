@@ -1,9 +1,11 @@
 
 import { configureStore } from '@reduxjs/toolkit';
-import appReducer from './AppReducer';
+import recipeListReducer from './recipeListSlice';
+import recipeReducer from "./recipeSlice";
+import pageableReducer from './pageableSlice';
 
 const store = configureStore({
-  reducer: appReducer, 
+  reducer: { recipeList: recipeListReducer, recipe: recipeReducer, pageable: pageableReducer }, 
   middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
 });
 

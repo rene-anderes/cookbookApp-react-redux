@@ -7,7 +7,7 @@ import { ShowTags } from "./showTags";
 const ShowDetail = () => {
 
     const dispatch = useDispatch(); 
-    const recipe = useSelector(state => state.detail);
+    const recipe = useSelector(state => state.recipe.data);
     console.log("Show Recipe UUID: " + recipe.uuid);
     
     dispatch(fetchIngredients(recipe.links))

@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 export const ShowTags = () => {
 
-    const tags = useSelector(state => state.detail.tags );
+    const tags = useSelector(state => state.recipe.data.tags );
     return (
         <div className="recipe-tags">Stichworte:&nbsp;
             {tags.map((tag, index) => (

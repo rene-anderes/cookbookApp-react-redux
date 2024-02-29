@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ShowIngredients = () => {
 
-    const ingredients = useSelector(state => state.ingredients );
+    const ingredients = useSelector(state => state.recipe.ingredients );
     return (
         <table>
             <tbody>

@@ -5,9 +5,11 @@ import { fetchData, fetchDetail, nextPage, previousPage } from "../redux/ActionC
 const ShowData = () => {
 
   const dispatch = useDispatch(); 
-  const { data, pagable } = useSelector(state => ({
-    data: state.data,
-    pagable: state.pagable,
+  const { data } = useSelector(state => ({
+    data: state.recipeList.data
+  }));
+  const { pageable } = useSelector(state => ({
+    pageable: state.pageable.data
   }));
 
   useEffect(() => {
@@ -25,8 +27,8 @@ const ShowData = () => {
           <div>&nbsp;</div>
 
           <div className="w3-margin-top w3-center">
-              <button className="navigation-prev w3-center" disabled={pagable?.first} title="previous" onClick={() => dispatch(previousPage())}>previous</button>
-              <button className="navigation-next w3-center" disabled={pagable?.last} title="next" onClick={() => dispatch(nextPage())}>next</button>
+              <button className="navigation-prev w3-center" disabled={pageable?.first} title="previous" onClick={() => dispatch(previousPage())}>previous</button>
+              <button className="navigation-next w3-center" disabled={pageable?.last} title="next" onClick={() => dispatch(nextPage())}>next</button>
           </div>
 
       </div>

@@ -1,4 +1,8 @@
 import isDevMode from "../helper/DevDetector";
+import { setCollection } from "./recipeListSlice";
+import { setRecipe } from "./recipeSlice";
+import { setIngredients } from "./recipeSlice";
+import { setPageable } from "./pageableSlice";
 
 const RecipeCommand = Object.freeze({
   INITIAL: "INITIAL",
@@ -14,27 +18,6 @@ const getLiveMode = () => {
   console.log("Live-Mode URL: " + protocol + '//' + host + pathname);
   return protocol + '//' + host + pathname; 
 };
-
-export const DATA = "DATA";
-export const DETAIL = "DETAIL";
-export const INGREDIENTS = "INGREDIENTS";
-export const PAGEABLE = "PAGEABLE";
-
-export const setData = (data) => ({
-  type: DATA, data
-});
-
-export const setDetail = (detail) => ({
-  type: DETAIL, detail
-});
-
-export const setIngredients = (ingredients) => ({
-  type: INGREDIENTS, ingredients
-});
-
-export const setPagable = (pagable) => ({
-  type: PAGEABLE, pagable
-});
 
 export const previousPage = () => {
   let baseURL;
@@ -87,7 +70,7 @@ export const fetchDetail = (links) => {
         }
       })
       const detail = await response.json();
-      dispatch(setDetail(detail))
+      dispatch(setRecipe(detail))
     } catch (error) {
       console.log(error);
     }
@@ -119,17 +102,15 @@ export const fetchIngredients = (links) => {
   }
 }
 
-function getPagable(data) {
-  const pagable = [{}];
-  pagable.totalPages = data.totalPages;
-  pagable.pageNumber = data.number;
-  pagable.pageSize = data.size;
-  pagable.offset = data.offset;
-  pagable.last = data.last;
-  pagable.first = data.first;
-  console.log("totalPages: " + pagable.totalPages);
-  console.log("pageNumber: " + pagable.pageNumber);
-  return pagable;
+function getPageable(data) {
+  const pageable = {};
+  pageable.totalPages = data.totalPages;
+  pageable.pageNumber = data.number;
+  pageable.pageSize = data.size;
+  pageable.offset = data.offset;
+  pageable.last = data.last;
+  pageable.first = data.first;
+  return pageable;
 }
 
 function fetchRecipeList(baseURL, recipeCommand) {
@@ -139,12 +120,12 @@ function fetchRecipeList(baseURL, recipeCommand) {
     let pageSize = 0;
     switch (recipeCommand) {
       case RecipeCommand.NEXT:
-        pageNumber = (getState().pagable?.pageNumber + 1);
-        pageSize = (getState().pagable?.pageSize);
+        pageNumber = (getState().pageable.data.pageNumber + 1);
+        pageSize = (getState().pageable.data.pageSize);
         break;
       case RecipeCommand.PREVIOUS:
-        pageNumber = (getState().pagable?.pageNumber - 1);
-        pageSize = (getState().pagable?.pageSize);
+        pageNumber = (getState().pageable.data.pageNumber - 1);
+        pageSize = (getState().pageable.data.pageSize);
         break;
       default:
       case RecipeCommand.INITIAL:
@@ -173,9 +154,9 @@ function fetchRecipeList(baseURL, recipeCommand) {
       })
       const data = await response.json();
       console.log("Anzahl Rezepte: " + data.numberOfElements);
-      dispatch(setData(data.content));
-      const pagable = getPagable(data);      
-      dispatch(setPagable(pagable));
+      dispatch(setCollection(data.content));
+      const pageableData = getPageable(data);
+      dispatch(setPageable(pageableData));
     } catch (error) {
       console.log(error);
     }

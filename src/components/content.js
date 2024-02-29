@@ -7,7 +7,7 @@ import { ShowAppInfo } from "./showAppInfo";
 
 const Content = () => {
     const version = packageJson.version;
-    const recipe = useSelector(state => state.detail);
+    const recipe = useSelector(state => state.recipe.data);
     let showDetail = false;
     if (recipe?.uuid) {
         showDetail = true;

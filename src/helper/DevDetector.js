@@ -1,6 +1,6 @@
 
 export default function isDevMode() {
-    return false;
+    return true;
 //    if (process.env.NODE_ENV === 'development') {
 //        return true;
 //    } else {
