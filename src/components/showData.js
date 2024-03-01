@@ -2,17 +2,18 @@ import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchData, fetchDetail, nextPage, previousPage } from "../redux/ActionCreator"
+import { basePath } from "../index";
 
 let ListItem = ({item}) => {
   const dispatch = useDispatch();
-  const recipeLink = "/cookbookApp/" + item.uuid;
+  const recipeLink = basePath + "/" + item.uuid;
   return(
     <Link to={recipeLink} className="selection" onClick={() => dispatch(fetchDetail(item.links))}>{item.title}</Link>
   );
 };
 
 const ShowData = () => {
-
+  
   const dispatch = useDispatch(); 
   const { data } = useSelector(state => ({
     data: state.recipeList.data
