@@ -33,16 +33,29 @@ button:hover {
     background-color: #fc6;
 }
 
-button.selection {
+a.selection {
+    border: none;
     border-radius: 0;
     border-top-right-radius: 0.9em;
     border-bottom-right-radius: 0.9em;
-    margin-left: 0;
-    padding-left: 16px;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 0.5em;
+    margin-left: 0px;
+    margin-bottom: 0.5em;
+    width: 100%;
     background-color: #FF9C63;
+    text-align: left;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    outline: 0;
+    display: inline-block;
+    
 }
 
-button.selection:hover {
+a.selection:hover {
     background-color: #fc6;
 }
 

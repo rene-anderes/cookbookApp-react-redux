@@ -1,18 +1,12 @@
-import ShowDetail from "./showDetail";
+import { Routes, Route } from "react-router-dom";
 import reactIcon from "../images/React-icon.svg";
 import reduxIcon from "../images/Redux-icon.svg";
-import packageJson from "../../package.json";
-import { useSelector } from "react-redux";
 import { ShowAppInfo } from "./showAppInfo";
+import { ShowDetail } from "./showDetail";
+import { basePath, version } from "../index";
 
 const Content = () => {
-    const version = packageJson.version;
-    const recipe = useSelector(state => state.recipe.data);
-    let showDetail = false;
-    if (recipe?.uuid) {
-        showDetail = true;
-    }
-
+    const recipePath = basePath + "/:id";
     return (
         
         <div className="w3-rest" style={{height: "100%"}}>
@@ -50,16 +44,10 @@ const Content = () => {
                     </div>
                     <div className="w3-cell">
                         <div className="w3-container w3-margin-left ra-lcars-text-yellow" style={{maxWidth: "800px"}}>
-                            { showDetail && <ShowDetail/>}
-                            { !showDetail &&
-                                <div className="w3-container w3-margin-left ra-lcars-text-yellow">
-                                    <span>Wähle ein Rezept aus der Liste aus ...</span>
-                                    <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
-                                    <p>&nbsp;</p>
-                                    <ShowAppInfo/>
-                                </div>
-                            }
+                            <Routes>
+                                <Route path={basePath} element={ <ShowAppInfo /> }></Route>
+                                <Route path={recipePath} element={ <ShowDetail /> }></Route>
+                            </Routes>
                         </div>
                     </div>
                 </div>
