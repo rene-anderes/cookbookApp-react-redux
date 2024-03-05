@@ -2,7 +2,6 @@ import isDevMode from "../helper/DevDetector";
 import { setCollection } from "./recipeListSlice";
 import { setRecipe } from "./recipeSlice";
 import { setIngredients } from "./recipeSlice";
-import { setPageable } from "./pageableSlice";
 
 const RecipeCommand = Object.freeze({
   INITIAL: "INITIAL",
@@ -120,12 +119,12 @@ function fetchRecipeList(baseURL, recipeCommand) {
     let pageSize = 0;
     switch (recipeCommand) {
       case RecipeCommand.NEXT:
-        pageNumber = (getState().pageable.data.pageNumber + 1);
-        pageSize = (getState().pageable.data.pageSize);
+        pageNumber = (getState().recipeList.pageable.pageNumber + 1);
+        pageSize = (getState().recipeList.pageable.pageSize);
         break;
       case RecipeCommand.PREVIOUS:
-        pageNumber = (getState().pageable.data.pageNumber - 1);
-        pageSize = (getState().pageable.data.pageSize);
+        pageNumber = (getState().recipeList.pageable.pageNumber - 1);
+        pageSize = (getState().recipeList.pageable.pageSize);
         break;
       default:
       case RecipeCommand.INITIAL:
@@ -154,9 +153,7 @@ function fetchRecipeList(baseURL, recipeCommand) {
       })
       const data = await response.json();
       console.log("Anzahl Rezepte: " + data.numberOfElements);
-      dispatch(setCollection(data.content));
-      const pageableData = getPageable(data);
-      dispatch(setPageable(pageableData));
+      dispatch(setCollection(data));
     } catch (error) {
       console.log(error);
     }

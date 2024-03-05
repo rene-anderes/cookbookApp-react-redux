@@ -19,7 +19,7 @@ const ShowData = () => {
     data: state.recipeList.data
   }));
   const { pageable } = useSelector(state => ({
-    pageable: state.pageable.data
+    pageable: state.recipeList.pageable
   }));
 
   useEffect(() => {
