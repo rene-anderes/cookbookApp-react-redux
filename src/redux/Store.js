@@ -4,7 +4,10 @@ import recipeListReducer from './recipeListSlice';
 import recipeReducer from "./recipeSlice";
 
 const store = configureStore({
-  reducer: { recipeList: recipeListReducer, recipe: recipeReducer }, 
+  reducer: { 
+    recipeList: recipeListReducer, 
+    recipe: recipeReducer
+  }, 
   middleware: getDefaultMiddleware => getDefaultMiddleware(),
 });
 

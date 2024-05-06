@@ -45,8 +45,8 @@ const Content = () => {
                     <div className="w3-cell">
                         <div className="w3-container w3-margin-left ra-lcars-text-yellow" style={{maxWidth: "800px"}}>
                             <Routes>
-                                <Route path={basePath} element={ <ShowAppInfo /> }></Route>
-                                <Route path={recipePath} element={ <ShowDetail /> }></Route>
+                                <Route path={basePath} element={ <ShowAppInfo/> }/>
+                                <Route path={recipePath} element={ <ShowDetail /> }/>
                             </Routes>
                         </div>
                     </div>

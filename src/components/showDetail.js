@@ -4,13 +4,13 @@ import ShowIngredients from "./showIngredients";
 import { fetchIngredients } from "../redux/ActionCreator";
 import { ShowTags } from "./showTags";
 
-export const ShowDetail = () => {
-
+export const ShowDetail = (props) => {
+    
     const dispatch = useDispatch(); 
     const recipe = useSelector(state => state.recipe.data);
     
     if (recipe.uuid) {
-      dispatch(fetchIngredients(recipe.links))
+      dispatch(fetchIngredients(recipe._links))
       return(
         <ShowRecipe recipe={recipe}/>
       )

@@ -78,7 +78,7 @@ export const fetchDetail = (links) => {
 
 export const fetchIngredients = (links) => {
   return async (dispatch) => {
-    const linkURL = links.find(link => link.rel === "ingredients");
+    const linkURL = links.ingredients;
     console.log("Ingredients-URL: " + linkURL.href);
     let baseURL;
     if (isDevMode()) {
@@ -99,17 +99,6 @@ export const fetchIngredients = (links) => {
       console.log(error);
     }
   }
-}
-
-function getPageable(data) {
-  const pageable = {};
-  pageable.totalPages = data.totalPages;
-  pageable.pageNumber = data.number;
-  pageable.pageSize = data.size;
-  pageable.offset = data.offset;
-  pageable.last = data.last;
-  pageable.first = data.first;
-  return pageable;
 }
 
 function fetchRecipeList(baseURL, recipeCommand) {
@@ -137,7 +126,7 @@ function fetchRecipeList(baseURL, recipeCommand) {
       const queryParams = {
         size: pageSize,
         page: pageNumber,
-        sortList: "title"
+        sort: "title,asc"
       };
 
       const url = new URL(path, baseURL);
