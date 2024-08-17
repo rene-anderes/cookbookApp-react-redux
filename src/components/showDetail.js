@@ -4,7 +4,7 @@ import ShowIngredients from "./showIngredients";
 import { fetchIngredients } from "../redux/ActionCreator";
 import { ShowTags } from "./showTags";
 
-export const ShowDetail = (props) => {
+export const ShowDetail = () => {
     
     const dispatch = useDispatch(); 
     const recipe = useSelector(state => state.recipe.data);
