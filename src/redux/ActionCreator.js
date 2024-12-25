@@ -149,15 +149,21 @@ function fetchRecipeList(baseURL, recipeCommand) {
   };
 }
 
-function searchRecipe(baseURL, text) {
+export const searchRecipes= (text) => {
   return async (dispatch) => {
     try {
+      let baseURL;
+      if (isDevMode()) {
+        baseURL = DEV_MODE_URL;
+      } else {
+        baseURL = getLiveMode();
+      }
       const path = "/resources-api/recipes-repository";
       const queryParams = {
-        size: 100,
+        size: 10,
         page: 0,
         sort: "title,asc",
-        search: {text}
+        search: text
       };
       const url = new URL(path, baseURL);
       console.log("Recipe Search URL: " + url);
