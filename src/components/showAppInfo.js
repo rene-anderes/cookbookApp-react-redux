@@ -6,7 +6,7 @@ import starTrekIcon from "../images/star-trek.png";
 export const ShowAppInfo = () => {
 
     return(
-        <div className="w3-container w3-margin-left w3-animate-opacity ra-lcars-text-yellow">
+        <div className="w3-container w3-margin-left w3-animate-opacity">
             <p className="ra-lcars-text-red w3-large" style={{textTransform: "uppercase"}}>Informationen zu dieser App</p>
 
             <ul className="w3-ul">

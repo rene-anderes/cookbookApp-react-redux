@@ -148,3 +148,32 @@ function fetchRecipeList(baseURL, recipeCommand) {
     }
   };
 }
+
+function searchRecipe(baseURL, text) {
+  return async (dispatch) => {
+    try {
+      const path = "/resources-api/recipes-repository";
+      const queryParams = {
+        size: 100,
+        page: 0,
+        sort: "title,asc",
+        search: {text}
+      };
+      const url = new URL(path, baseURL);
+      console.log("Recipe Search URL: " + url);
+      for (const [key, value] of Object.entries(queryParams)) {
+        url.searchParams.append(key, value);
+      }
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json; charset=utf-8'
+        }
+      })
+      const data = await response.json();
+      console.log("Anzahl Rezepte: " + data.numberOfElements);
+      dispatch(setCollection(data));
+    }catch (error) {
+      console.log(error);
+    }
+  }
+};
