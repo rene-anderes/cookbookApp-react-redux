@@ -263,6 +263,17 @@ input:focus {
     outline:none;
 }
 
+.ra-search-input {
+    display: block;
+    background-color: #c9c;
+    color: black;
+    border: 0;
+    width: 100%;
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.9rem;
+}
+
 .ra-search-result-item {
     padding-bottom: 1rem;
     width: 100%;
@@ -270,4 +281,9 @@ input:focus {
 
 .ra-search-result-item a {
     text-decoration: none;
+}
+
+.ra-search-result-item a:hover {
+    text-decoration: none;
+    color: #c66;
 }

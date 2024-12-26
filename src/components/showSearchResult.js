@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchDetail } from "../redux/ActionCreator"
@@ -8,7 +8,7 @@ let ListItem = ({item}) => {
   const dispatch = useDispatch();
   const recipeLink = basePath + "/" + item.uuid;
   return (
-    <div class="ra-search-result-item ra-lcars-text-yellow">
+    <div className="ra-search-result-item ra-lcars-text-yellow">
         <Link to={recipeLink} onClick={() => dispatch(fetchDetail(item.links))}>{item.title}</Link>
     </div>
   );
