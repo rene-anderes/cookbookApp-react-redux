@@ -2,6 +2,7 @@ import isDevMode from "../helper/DevDetector";
 import { setCollection } from "./recipeListSlice";
 import { setRecipe } from "./recipeSlice";
 import { setIngredients } from "./recipeSlice";
+import { setSearchResult } from "./searchResultSlice";
 
 const RecipeCommand = Object.freeze({
   INITIAL: "INITIAL",
@@ -160,13 +161,13 @@ export const searchRecipes= (text) => {
       }
       const path = "/resources-api/recipes-repository";
       const queryParams = {
-        size: 10,
+        size: 100,
         page: 0,
         sort: "title,asc",
         search: text
       };
       const url = new URL(path, baseURL);
-      console.log("Recipe Search URL: " + url);
+      console.debug("Recipe Search URL: " + url);
       for (const [key, value] of Object.entries(queryParams)) {
         url.searchParams.append(key, value);
       }
@@ -176,10 +177,14 @@ export const searchRecipes= (text) => {
         }
       })
       const data = await response.json();
-      console.log("Anzahl Rezepte: " + data.numberOfElements);
-      dispatch(setCollection(data));
+      console.debug("Anzahl Rezepte: " + data.numberOfElements);
+      
+      const search = {};
+      search.searchText = text;
+      search.searchResult = data;
+      dispatch(setSearchResult(search));
     }catch (error) {
-      console.log(error);
+      console.error(error);
     }
   }
 };

@@ -97,7 +97,7 @@ button.navigation-prev:enabled {
     cursor: pointer;
 }
 
-button.navigation-next:enabled:hover {
+button.navigation-prev:enabled:hover {
     background-color: #c66;
 }
 
@@ -257,4 +257,17 @@ button.navigation-next:enabled:hover {
      font-size: 1.875em;
      color: #c9c;
      text-transform: uppercase;
+}
+
+input:focus {
+    outline:none;
+}
+
+.ra-search-result-item {
+    padding-bottom: 1rem;
+    width: 100%;
+}
+
+.ra-search-result-item a {
+    text-decoration: none;
 }

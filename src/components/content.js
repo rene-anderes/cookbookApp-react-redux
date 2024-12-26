@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import reactIcon from "../images/React-icon.svg";
 import reduxIcon from "../images/Redux-icon.svg";
+import searchIcon from "../images/Search-icon.svg";
 import { ShowAppInfo } from "./showAppInfo";
 import { ShowDetail } from "./showDetail";
 import { basePath, version } from "../index";
@@ -38,7 +39,13 @@ const Content = () => {
                 <div className="ra-lcars-vertical-spacer"></div>
                 <div className="w3-cell-row" style={{height: "80vh"}}>
                     <div className="w3-cell ra-lcars-line-left ra-lcars-color-red" style={{height: "100%"}}>
-                        <div className="ra-lcars-color-red w3-right-align" style={{minHeight: "10em"}}><span className="ra-lcars-code">67-1229</span></div> 
+                        <div className="ra-lcars-color-red w3-right-align" style={{minHeight: "10em"}}><span className="ra-lcars-code">67-1229</span>
+                            <div className="w3-center">
+                                <Link to={basePath}>
+                                    <img alt="Rezeptsuche" style={{marginTop: "2rem"}} width={"28px"} src={searchIcon}/>
+                                </Link>
+                            </div>
+                        </div> 
                         <div className="ra-lcars-vertical-spacer"></div>
                         <div className="ra-lcars-color-yellow w3-right-align" style={{height: "40%", maxHeight: "75%", minHeight: "12em"}}><span className="ra-lcars-code">056-A3</span></div>
                         <div className="ra-lcars-vertical-spacer"></div>
@@ -48,7 +55,6 @@ const Content = () => {
                                     <img style={{marginTop: "0.5em"}} width={"28px"} alt="React" src={reactIcon}/><br/>
                                     <img width={"28px"} alt="Redux" style={{marginTop: "0.5em"}} src={reduxIcon}/>
                                 </Link>
-
                             </div>
                         </div>
                         <div className="ra-lcars-vertical-spacer"></div>
