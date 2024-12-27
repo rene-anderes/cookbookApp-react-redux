@@ -60,7 +60,7 @@ const Content = () => {
                         <div className="ra-lcars-vertical-spacer"></div>
                     </div>
                     <div className="w3-cell">
-                        <div className="w3-container w3-margin-left ra-lcars-text-yellow" style={{maxWidth: "800px"}}>
+                        <div className="w3-container w3-margin-left ra-lcars-text-yellow-light" style={{maxWidth: "800px"}}>
                             <Routes>
                                 <Route path={basePath} element={ <ShowSearch/> }/>
                                 <Route path={infoPath} element={ <ShowAppInfo/> }/>

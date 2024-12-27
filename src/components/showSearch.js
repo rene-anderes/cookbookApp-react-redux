@@ -11,9 +11,9 @@ export const ShowSearch = () => {
     }));
 
     return(
-        <div>
-            <div className="w3-container w3-margin-left w3-animate-opacity">
-                <p className="ra-lcars-text-red w3-large" style={{textTransform: "uppercase"}}>Rezeptsuche</p>
+        <div className="w3-container w3-margin-left w3-animate-opacity">
+            
+                <div className="ra-search-title">Rezeptsuche</div>
                 <input type="text" className="ra-search-input" value={searchText} onKeyDown={(e) => {
                             if (e.key === "Enter") {
                                 dispatch(searchRecipes(e.target.value));
@@ -23,7 +23,7 @@ export const ShowSearch = () => {
                             dispatch(setSearchText(e.target.value));
                         }}
                         placeholder='Type to search'/>
-            </div>
+            
             <ShowSearchResult/>
         </div>
     );

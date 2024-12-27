@@ -7,7 +7,7 @@ export const ShowAppInfo = () => {
 
     return(
         <div className="w3-container w3-margin-left w3-animate-opacity">
-            <p className="ra-lcars-text-red w3-large" style={{textTransform: "uppercase"}}>Informationen zu dieser App</p>
+            <div className="ra-app-info-title">Informationen zu dieser App</div>
 
             <ul className="w3-ul">
                 <li className="w3-bar">
@@ -31,9 +31,10 @@ export const ShowAppInfo = () => {
                         <span>LCARS steht für Library Computer Access/Retrieval System. Es ist ein fiktives Designsystem für Benutzeroberflächen, das in vielen Star Trek-Serien und -Filmen verwendet wird. LCARS zeichnet sich durch seine übersichtliche Gestaltung, klare Linien aus.</span>
                     </div>
                 </li>
-                
             </ul>
-
+            <p>&nbsp;</p>
+            <div>© 2023-2025 René Anderes | <a href="https://www.anderes.org">www.anderes.org</a> | design and implemented by René Anderes</div>
+            <p>&nbsp;</p>
         </div>
     );
 }

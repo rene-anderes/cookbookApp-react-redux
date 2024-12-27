@@ -8,7 +8,7 @@ let ListItem = ({item}) => {
   const dispatch = useDispatch();
   const recipeLink = basePath + "/" + item.uuid;
   return (
-    <div className="ra-search-result-item ra-lcars-text-yellow">
+    <div className="ra-search-result-item">
         <Link to={recipeLink} onClick={() => dispatch(fetchDetail(item.links))}>{item.title}</Link>
     </div>
   );
@@ -21,7 +21,7 @@ const ShowSearchResult = () => {
   }));
    
   return (
-    <div className="w3-container w3-margin-left w3-animate-opacity ra-lcars-text-yellow">
+    <div className="w3-animate-opacity">
       <div className="w3-margin-top">
           {data?.map((item, index) => (
             <div key={index}>

@@ -1,6 +1,19 @@
+:root {
+	--color-dark: black;
+	--color-orange: #FF9C63;
+    --color-yellow: #fc6;
+    --color-yellow-light: #ffe7ad;
+    --color-red: #c66;
+    --color-lavender: #c9c;
+    --color-blue-light: #9cf;
+    --color-grey: #999;
+    --color-grey-light: #c0c0c0;
+    --color-paper: white;
+}
+
 .App {
     font-family: 'Antonio', cursive, Helvetica;
-    background-color: black;
+    background-color: var(--color-dark);
 	line-height: 1.2;
     height: 100%;
 }
@@ -11,9 +24,10 @@
 
 .App h1 {
     font-family: 'Antonio', cursive, Helvetica;
-    background-color: black;
-    color: #ffe7ad;
+    background-color: var(--color-dark);
+    color: var(--color-yellow-light);
     text-transform: uppercase;
+    padding-left: 1rem;
 }
 
 button {
@@ -26,11 +40,11 @@ button {
     padding: 8px;
     margin: 4px;
     width: 100%;
-    background-color: #FF9C63;
+    background-color:var(--color-orange);
 }
 
 button:hover {
-    background-color: #fc6;
+    background-color: var(--color-yellow);
 }
 
 a.selection {
@@ -44,10 +58,10 @@ a.selection {
     margin-left: 0px;
     margin-bottom: 0.5em;
     width: 100%;
-    background-color: #FF9C63;
+    background-color: var(--color-orange);
     text-align: left;
     text-decoration: none;
-    color: #000;
+    color: var(--color-dark);
     font-weight: bold;
     cursor: pointer;
     outline: 0;
@@ -56,12 +70,12 @@ a.selection {
 }
 
 a.selection:hover {
-    background-color: #fc6;
+    background-color: var(--color-yellow);
 }
 
 button.navigation-next {
     width: 8em;
-    background-color: white;
+    background-color: var(--color-paper);
     text-align: center;
     cursor: inherit;
     margin-left: 1px;
@@ -71,18 +85,18 @@ button.navigation-next {
 }
 
 button.navigation-next:enabled {
-    background-color: white;
+    background-color: var(--color-paper);
     text-align: center;
     cursor: pointer;
 }
 
 button.navigation-next:enabled:hover {
-    background-color: #c66;
+    background-color: var(--color-red);
 }
 
 button.navigation-prev {
     width: 8em;
-    background-color: white;
+    background-color: var(--color-paper);
     text-align: center;
     cursor: inherit;
     margin-right: 1px;
@@ -92,13 +106,13 @@ button.navigation-prev {
 }
 
 button.navigation-prev:enabled {
-    background-color: white;
+    background-color: var(--color-paper);
     text-align: center;
     cursor: pointer;
 }
 
 button.navigation-prev:enabled:hover {
-    background-color: #c66;
+    background-color: var(--color-red);
 }
 
 .ra-lcars-top-left-corner {
@@ -109,7 +123,7 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-top-left-corner .ra-lcars-top-left-corner-inside {
-    background-color: black;
+    background-color: var(--color-dark);
     border-top-left-radius: 1.5em;
     top: 1em;
     left: 4em;
@@ -126,7 +140,7 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-bottom-left-corner .ra-lcars-bottom-left-corner-inside {
-    background-color: black;
+    background-color: var(--color-dark);
     border-bottom-left-radius: 1.5em;
     top: 0;
     left: 4em;
@@ -143,7 +157,7 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-top-right-corner .ra-lcars-top-right-corner-inside {
-    background-color: black;
+    background-color: var(--color-dark);
     border-top-right-radius: 1.5em;
     top: 1em;
     left: 0;
@@ -160,7 +174,7 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-bottom-right-corner .ra-lcars-bottom-right-corner-inside {
-    background-color: black;
+    background-color: var(--color-dark);
     border-bottom-right-radius: 1.5em;
     top: 0;
     left: 0;
@@ -170,23 +184,23 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-color-lavender {
-    background-color: #c9c;
+    background-color: var(--color-lavender);
 }
 
 .ra-lcars-color-lightblue {
-    background-color: #9cf;
+    background-color: var(--color-blue-light);
 }
 
 .ra-lcars-color-red {
-    background-color: #c66;
+    background-color: var(--color-red);
 }
 
 .ra-lcars-color-grey {
-    background-color: #999;
+    background-color: var(--color-grey);
 }
 
 .ra-lcars-color-yellow {
-    background-color: #fc6;
+    background-color: var(--color-yellow);
 }
 
 .ra-lcars-line-bold {
@@ -215,7 +229,7 @@ button.navigation-prev:enabled:hover {
 
 .ra-lcars-vertical-spacer {
     height: 0.2em;
-    background-color: black;
+    background-color: var(--color-dark);
 }
 .ra-lcars-line-end-left {
     border-top-right-radius: 0.5em; 
@@ -223,16 +237,24 @@ button.navigation-prev:enabled:hover {
 }
 
 .ra-lcars-horizontal-spacer {
-    background-color: black;
+    background-color: var(--color-dark);
     width: 0.2em;
 }
 
 .ra-lcars-text-yellow {
-    color: #ffe7ad;
+    color: var(--color-yellow);
+}
+
+.ra-lcars-text-yellow-light {
+    color: var(--color-yellow-light);
+}
+
+.ra-lcars-text-yellow-light a:hover{
+    color: var(--color-red);
 }
 
 .ra-lcars-text-red {
-    color: #c66;
+    color: var(--color-red)
 }
 
 .ra-lcars-code {
@@ -241,21 +263,21 @@ button.navigation-prev:enabled:hover {
 
 .recipe-title {
     font-size: 2.5em;
-    color: #c66;
+    color: var(--color-red);
     text-transform: uppercase;
 }
 
 .recipe-preamble, .recipe-preparation, .recipe-ingredient  {
-    color: white;
+    color: var(--color-paper);
 }
 .recipe-rating, .recipe-adding, .recipe-update, .recipe-tags {
     font-size: 0.9em;   
-    color: white;
+    color: var(--color-paper);
 }
 
 .recipe-portion, .recipe-prepare {
      font-size: 1.875em;
-     color: #c9c;
+     color: var(--color-lavender);
      text-transform: uppercase;
 }
 
@@ -265,18 +287,19 @@ input:focus {
 
 .ra-search-input {
     display: block;
-    background-color: #c9c;
-    color: black;
+    background-color: var(--color-lavender);
+    color: var(--color-dark);
     border: 0;
     width: 100%;
     margin: 0;
-    padding: 1rem;
+    padding: 0.8rem;
     border-radius: 0.9rem;
 }
 
 .ra-search-result-item {
-    padding-bottom: 1rem;
+    padding-bottom: 0.8rem;
     width: 100%;
+    padding-left: 0.8rem;
 }
 
 .ra-search-result-item a {
@@ -285,5 +308,19 @@ input:focus {
 
 .ra-search-result-item a:hover {
     text-decoration: none;
-    color: #c66;
+    color: var(--color-red);
+}
+
+.ra-search-title {
+    font-size: 2.5em;
+    color: var(--color-red);
+    text-transform: uppercase;
+    padding-left: 0.8rem;
+    padding-bottom: 0.8rem;
+}
+
+.ra-app-info-title {
+    font-size: 2.5em;
+    color: var(--color-red);
+    text-transform: uppercase;
 }

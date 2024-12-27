@@ -23,7 +23,7 @@ let ShowRecipe = ({recipe}) => {
   const addingDate = new Date(recipe.addingDate);
   const editingDate = new Date(recipe.editingDate)
   return (
-    <div className="w3-container w3-margin-left w3-animate-opacity ra-lcars-text-yellow">
+    <div className="w3-container w3-margin-left w3-animate-opacity">
       <div className="recipe-title">{ recipe.title }</div>
       <div className="recipe-preamble" dangerouslySetInnerHTML={{__html: recipe.preamble}}></div>
       <div className="recipe-portion">Zutaten für <span id="noofperson">{ recipe.noOfPerson }</span> Personen</div>
@@ -36,6 +36,7 @@ let ShowRecipe = ({recipe}) => {
       <div className="recipe-adding">Erfasst: <span id="adding">{ addingDate.toLocaleDateString() }</span></div>
       <div className="recipe-update">Aktualisiert: <span id="update">{ editingDate.toLocaleDateString() }</span></div>
       <ShowTags>{ recipe.tags }</ShowTags>
+      <p>&nbsp;</p>
     </div>
   );
 
