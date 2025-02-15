@@ -15,96 +15,23 @@ const getLiveMode = () => {
   const protocol = window.location.protocol;
   const host = window.location.host;
   const pathname = window.location.pathname;
-  console.log("Live-Mode URL: " + protocol + '//' + host + pathname);
+  console.log(`Live-Mode URL: ${protocol}//${host}${pathname}`);
   return protocol + '//' + host + pathname; 
 };
 
-export const previousPage = () => {
+function getFetchUrl(url) {
   let baseURL;
   if (isDevMode()) {
     baseURL = DEV_MODE_URL;
   } else {
     baseURL = getLiveMode();
   }
-  return fetchRecipeList(baseURL, RecipeCommand.PREVIOUS);
-};
-
-export const nextPage = () => {
-  let baseURL;
-  if (isDevMode()) {
-    baseURL = DEV_MODE_URL;
-  } else {
-    baseURL = getLiveMode();
-  }
-  return fetchRecipeList(baseURL, RecipeCommand.NEXT);
-  
-};
-
-export const fetchData = () => {
-  let baseURL;
-  if (isDevMode()) {
-    baseURL = DEV_MODE_URL;
-  } else {
-    baseURL = getLiveMode(); 
-  }
-  return fetchRecipeList(baseURL, RecipeCommand.INITIAL);
-};
-
-export const fetchDetail = (links) => {
-  return async (dispatch) => {
-    let linkURL = links.find(link => link.rel === "self");
-    console.log("Recipe-URL: " + linkURL.href);
-    let baseURL;
-    if (isDevMode()) {
-      baseURL = DEV_MODE_URL;
-    } else {
-      baseURL = getLiveMode();
-    }
-    
-    try {
-      const url = new URL(linkURL.href, baseURL);
-      console.log("Recipe Detail URL: " + url);
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/json; charset=utf-8'
-        }
-      })
-      const detail = await response.json();
-      dispatch(setRecipe(detail))
-    } catch (error) {
-      console.log(error);
-    }
-  }
-};
-
-export const fetchIngredients = (links) => {
-  return async (dispatch) => {
-    const linkURL = links.ingredients;
-    console.log("Ingredients-URL: " + linkURL.href);
-    let baseURL;
-    if (isDevMode()) {
-      baseURL = DEV_MODE_URL;
-    } else {
-      baseURL = getLiveMode();
-    }
-    try {
-      const url = new URL(linkURL.href, baseURL);
-      const response = await fetch(url, {
-        headers: {
-          'Accept': 'application/json; charset=utf-8'
-        }
-      })
-      const ingredients = await response.json();
-      dispatch(setIngredients(ingredients));
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  return new URL(url, baseURL);
 }
 
-function fetchRecipeList(baseURL, recipeCommand) {
-  console.log("Recipe List Base-URL: " + baseURL);
+function fetchRecipeList(recipeCommand) {
   return async (dispatch, getState) => {
+   
     let pageNumber = 0;
     let pageSize = 0;
     switch (recipeCommand) {
@@ -122,55 +49,104 @@ function fetchRecipeList(baseURL, recipeCommand) {
         pageSize = 10;
         break;
     }
+
+    const path = "/resources-api/recipes-repository";
+    const queryParams = {
+      size: pageSize,
+      page: pageNumber,
+      sort: "title,asc"
+    };
+    
+    const url = getFetchUrl(path);
+    console.debug("Recipe List URL: " + url);
+    for (const [key, value] of Object.entries(queryParams)) {
+      url.searchParams.append(key, value);
+    }
+
     try {
-      const path = "/resources-api/recipes-repository";
-      const queryParams = {
-        size: pageSize,
-        page: pageNumber,
-        sort: "title,asc"
-      };
-
-      const url = new URL(path, baseURL);
-      console.log("Recipe List URL: " + url);
-      for (const [key, value] of Object.entries(queryParams)) {
-        url.searchParams.append(key, value);
-      }
-
       const response = await fetch(url, {
           headers: {
-            'Accept': 'application/json; charset=utf-8'
+            Accept: 'application/json; charset=utf-8'
           }
       })
       const data = await response.json();
-      console.log("Anzahl Rezepte: " + data.numberOfElements);
+      console.debug("Number of Recipes: " + data.numberOfElements);
       dispatch(setCollection(data));
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 }
 
+export const previousPage = () => {
+   return fetchRecipeList(RecipeCommand.PREVIOUS);
+};
+
+export const nextPage = () => {
+   return fetchRecipeList(RecipeCommand.NEXT); 
+};
+
+export const fetchData = () => {
+    return fetchRecipeList(RecipeCommand.INITIAL);
+};
+
+/**
+ * Logic with Thunks --> https://redux.js.org/usage/writing-logic-thunks
+ */
+export const fetchDetail = (links) => async (dispatch) => {
+    let linkURL = links.find(link => link.rel === "self");
+    const url = getFetchUrl(linkURL.href);
+    console.debug("Recipe Detail URL: " + url);
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json; charset=utf-8'
+        }
+      })
+      const detail = await response.json();
+      dispatch(setRecipe(detail))
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+export const fetchIngredients = (links) => {
+  return async (dispatch) => {
+    const linkURL = links.ingredients;
+    const url = getFetchUrl(linkURL.href);
+    console.debug("Ingredients-URL: " + url);
+
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'Accept': 'application/json; charset=utf-8'
+        }
+      })
+      const ingredients = await response.json();
+      dispatch(setIngredients(ingredients));
+    } catch (error) {
+      console.error(error);
+    }
+  }
+}
+
 export const searchRecipes= (text) => {
   return async (dispatch) => {
+    const path = "/resources-api/recipes-repository";
+    const queryParams = {
+      size: 100,
+      page: 0,
+      sort: "title,asc",
+      search: text
+    };
+    const url = getFetchUrl(path);
+    console.debug("Recipe Search URL: " + url);
+    for (const [key, value] of Object.entries(queryParams)) {
+      url.searchParams.append(key, value);
+    }
+
     try {
-      let baseURL;
-      if (isDevMode()) {
-        baseURL = DEV_MODE_URL;
-      } else {
-        baseURL = getLiveMode();
-      }
-      const path = "/resources-api/recipes-repository";
-      const queryParams = {
-        size: 100,
-        page: 0,
-        sort: "title,asc",
-        search: text
-      };
-      const url = new URL(path, baseURL);
-      console.debug("Recipe Search URL: " + url);
-      for (const [key, value] of Object.entries(queryParams)) {
-        url.searchParams.append(key, value);
-      }
       const response = await fetch(url, {
         headers: {
           'Accept': 'application/json; charset=utf-8'

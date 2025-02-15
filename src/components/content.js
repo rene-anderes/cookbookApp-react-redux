@@ -52,8 +52,8 @@ const Content = () => {
                         <div className="ra-lcars-color-grey w3-right-align" style={{height: "20%", maxHeight: "30%", minHeight: "10em"}}><span className="ra-lcars-code">V-{version}</span>
                             <div className="w3-center">
                                 <Link to={infoPath}>
-                                    <img style={{marginTop: "0.5em"}} width={"28px"} alt="React" src={reactIcon}/><br/>
-                                    <img width={"28px"} alt="Redux" style={{marginTop: "0.5em"}} src={reduxIcon}/>
+                                    <img style={{marginTop: "0.5rem"}} width={"28px"} alt="React" src={reactIcon}/><br/>
+                                    <img width={"28px"} alt="Redux" style={{marginTop: "0.5rem"}} src={reduxIcon}/>
                                 </Link>
                             </div>
                         </div>
