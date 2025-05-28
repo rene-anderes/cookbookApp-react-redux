@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ShowIngredients from "./showIngredients";
 import { fetchIngredients } from "../redux/ActionCreator";
