@@ -259,6 +259,11 @@ button.navigation-prev:enabled:hover {
 
 .ra-lcars-code {
     padding: 0.2em;
+
+    a {
+        text-decoration: none;
+    } 
+    
 }
 
 .recipe-title {

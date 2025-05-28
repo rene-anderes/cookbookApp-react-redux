@@ -1,11 +1,10 @@
-import React from "react";
 import reactIcon from "../images/React-icon.svg";
 import reduxIcon from "../images/Redux-icon.svg";
 import starTrekIcon from "../images/star-trek.png";
 
 export const ShowAppInfo = () => {
 
-    return(
+    return (
         <div className="w3-container w3-margin-left w3-animate-opacity">
             <div className="ra-app-info-title">Informationen zu dieser App</div>
 

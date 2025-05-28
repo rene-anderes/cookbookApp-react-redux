@@ -3,6 +3,9 @@ import reactIcon from "../images/React-icon.svg";
 import reduxIcon from "../images/Redux-icon.svg";
 import searchIcon from "../images/Search-icon.svg";
 import { ShowAppInfo } from "./showAppInfo";
+import { Show47 } from "./show74";
+import { ShowThx} from "./showThx";
+import { ShowA113} from "./showA113";
 import { ShowDetail } from "./showDetail";
 import { basePath, version } from "../index";
 import { ShowSearch } from "./showSearch";
@@ -10,7 +13,10 @@ import { Link } from "react-router-dom";
 
 const Content = () => {
     const recipePath = basePath + "/:id";
-    const infoPath = basePath + "/appInfo"
+    const infoPath = basePath + "/appInfo";
+    const fortySevenPath = basePath + "/47";
+    const thxPath = basePath + "/thx1138";
+    const aOneOneThreePath = basePath + "/a113";
     return (
         
         <div className="w3-rest" style={{height: "100%"}}>
@@ -39,7 +45,7 @@ const Content = () => {
                 <div className="ra-lcars-vertical-spacer"></div>
                 <div className="w3-cell-row" style={{height: "80vh"}}>
                     <div className="w3-cell ra-lcars-line-left ra-lcars-color-red" style={{height: "100%"}}>
-                        <div className="ra-lcars-color-red w3-right-align" style={{minHeight: "10em"}}><span className="ra-lcars-code">67-1229</span>
+                        <div className="ra-lcars-color-red w3-right-align" style={{minHeight: "10em"}}><span className="ra-lcars-code"><Link to={fortySevenPath}>47</Link>-<Link to={thxPath}>1138</Link></span>
                             <div className="w3-center">
                                 <Link to={basePath}>
                                     <img alt="Rezeptsuche" style={{marginTop: "2rem"}} width={"28px"} src={searchIcon}/>
@@ -47,7 +53,7 @@ const Content = () => {
                             </div>
                         </div> 
                         <div className="ra-lcars-vertical-spacer"></div>
-                        <div className="ra-lcars-color-yellow w3-right-align" style={{height: "40%", maxHeight: "75%", minHeight: "12em"}}><span className="ra-lcars-code">056-A3</span></div>
+                        <div className="ra-lcars-color-yellow w3-right-align" style={{height: "40%", maxHeight: "75%", minHeight: "12em"}}><span className="ra-lcars-code"><Link to={aOneOneThreePath}>A1-13</Link></span></div>
                         <div className="ra-lcars-vertical-spacer"></div>
                         <div className="ra-lcars-color-grey w3-right-align" style={{height: "20%", maxHeight: "30%", minHeight: "10em"}}><span className="ra-lcars-code">V-{version}</span>
                             <div className="w3-center">
@@ -64,6 +70,9 @@ const Content = () => {
                             <Routes>
                                 <Route path={basePath} element={ <ShowSearch/> }/>
                                 <Route path={infoPath} element={ <ShowAppInfo/> }/>
+                                <Route path={fortySevenPath} element={ <Show47/> }/>
+                                <Route path={thxPath} element={ <ShowThx/> }/>
+                                <Route path={aOneOneThreePath} element={ <ShowA113/> }/>
                                 <Route path={recipePath} element={ <ShowDetail /> }/>
                             </Routes>
                         </div>
