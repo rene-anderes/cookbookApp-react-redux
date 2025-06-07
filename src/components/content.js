@@ -6,6 +6,7 @@ import { ShowAppInfo } from "./showAppInfo";
 import { Show47 } from "./show74";
 import { ShowThx} from "./showThx";
 import { ShowA113} from "./showA113";
+import { Show28} from "./show28";
 import { ShowDetail } from "./showDetail";
 import { basePath, version } from "../index";
 import { ShowSearch } from "./showSearch";
@@ -17,6 +18,7 @@ const Content = () => {
     const fortySevenPath = basePath + "/47";
     const thxPath = basePath + "/thx1138";
     const aOneOneThreePath = basePath + "/a113";
+    const aTwentyEightPath = basePath + "/28";
     return (
         
         <div className="w3-rest" style={{height: "100%"}}>
@@ -55,7 +57,7 @@ const Content = () => {
                         <div className="ra-lcars-vertical-spacer"></div>
                         <div className="ra-lcars-color-yellow w3-right-align" style={{height: "40%", maxHeight: "75%", minHeight: "12em"}}><span className="ra-lcars-code"><Link to={aOneOneThreePath}>A1-13</Link></span></div>
                         <div className="ra-lcars-vertical-spacer"></div>
-                        <div className="ra-lcars-color-grey w3-right-align" style={{height: "20%", maxHeight: "30%", minHeight: "10em"}}><span className="ra-lcars-code">V-{version}</span>
+                        <div className="ra-lcars-color-grey w3-right-align" style={{height: "20%", maxHeight: "30%", minHeight: "10em"}}><span className="ra-lcars-code">V-{version}-<Link to={aTwentyEightPath}>28</Link></span>
                             <div className="w3-center">
                                 <Link to={infoPath}>
                                     <img style={{marginTop: "0.5rem"}} width={"28px"} alt="React" src={reactIcon}/><br/>
@@ -73,6 +75,7 @@ const Content = () => {
                                 <Route path={fortySevenPath} element={ <Show47/> }/>
                                 <Route path={thxPath} element={ <ShowThx/> }/>
                                 <Route path={aOneOneThreePath} element={ <ShowA113/> }/>
+                                <Route path={aTwentyEightPath} element={ <Show28/> }/>
                                 <Route path={recipePath} element={ <ShowDetail /> }/>
                             </Routes>
                         </div>
