@@ -329,3 +329,12 @@ input:focus {
     color: var(--color-red);
     text-transform: uppercase;
 }
+
+.ra-pi {
+    text-align: end;
+
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+}

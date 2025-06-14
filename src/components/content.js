@@ -7,6 +7,7 @@ import { Show47 } from "./show74";
 import { ShowThx} from "./showThx";
 import { ShowA113} from "./showA113";
 import { Show28} from "./show28";
+import { ShowPi} from "./showPi";
 import { ShowDetail } from "./showDetail";
 import { basePath, version } from "../index";
 import { ShowSearch } from "./showSearch";
@@ -19,6 +20,7 @@ const Content = () => {
     const thxPath = basePath + "/thx1138";
     const aOneOneThreePath = basePath + "/a113";
     const aTwentyEightPath = basePath + "/28";
+    const piPath = basePath + "/pi";
     return (
         
         <div className="w3-rest" style={{height: "100%"}}>
@@ -76,6 +78,7 @@ const Content = () => {
                                 <Route path={thxPath} element={ <ShowThx/> }/>
                                 <Route path={aOneOneThreePath} element={ <ShowA113/> }/>
                                 <Route path={aTwentyEightPath} element={ <Show28/> }/>
+                                <Route path={piPath} element={ <ShowPi /> }/>
                                 <Route path={recipePath} element={ <ShowDetail /> }/>
                             </Routes>
                         </div>
