@@ -5,7 +5,7 @@ export const ShowPi = () => {
     return (
          <div className="w3-container w3-margin-left w3-animate-opacity">
             <div className="ra-app-info-title">&pi;</div>
-            <p>Im Jahre 1995 erschien der Film "Das Netz". In diesem Computer-Thriller gelangte die Heldin mittels dem &pi; Symbol in ein fremdes Computer-Netzwerk; Backdoor genannt. Die <a href="https://www.youtube.com/watch?v=pXPXMxsXT28" target="_blank">Szene</a> kann bei YouTube angesehen werden.</p>
+            <p>Im Jahre 1995 erschien der Film "Das Netz". In diesem Computer-Thriller gelangte die Heldin mittels dem &pi; Symbol in ein fremdes Computer-Netzwerk; Backdoor genannt. Die <a href="https://www.youtube.com/watch?v=pXPXMxsXT28" target="_blank" rel="noopener noreferrer external">Szene</a> kann bei YouTube angesehen werden.</p>
             <p>Und wer jetzt denkt: 1995, das ist ein Alter Hut, dem lege ich die Worte von Anne Haeming von der taz ans Herz.<br/>Sie schreibt dazu:</p>
             <blockquote cite="https://taz.de/Thriller-Das-Netz-von-1995/!5774725/">
                 <p>Ob es eine Statistik gibt, wie viele Menschen wegen Angela Bennett Programmiererinnen geworden sind? Bennett (Sandra Bullock) ist in „Das Netz“ eine derartig lässige, selbstverständliche Heldin, dass sie eigentlich einen Boom in allen Informatikstudiengängen seit 1995 ausgelöst haben müsste. Könnte auch heute noch hervorragend klappen.</p>
